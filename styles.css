@@ -628,7 +628,7 @@ footer { padding: 46px 0 54px; border-top: 1px solid var(--rule); background: va
 }
 
 /* ── Centred hero (v2) ───────────────────────────────────────────────── */
-.hero-c { padding: 104px 0 84px; border-top: none; text-align: center; }
+.hero-c { padding: 96px 0 104px; border-top: none; text-align: center; }
 .hero-c h1 {
   font-size: clamp(31px, 4.4vw, 55px);
   line-height: 1.1;
@@ -643,8 +643,9 @@ footer { padding: 46px 0 54px; border-top: 1px solid var(--rule); background: va
 }
 .hero-c .hero-cta { justify-content: center; margin-top: 36px; }
 .hero-c .tag {
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--ink-4); margin-bottom: 24px;
+  font-family: var(--mono); font-size: clamp(13px, 1.35vw, 18px); font-weight: 500;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent);
+  margin-bottom: 30px;
 }
 
 /* ── Logo grid (awaiting customers) ──────────────────────────────────── */
