@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hridhaan Systems — Evidence-grade AI for regulated decisions</title>
-<meta name="description" content="Hridhaan reads research and development documents, maps them against the rules that govern them, and returns citation-backed, auditable output. One engine, five rule packs, deployed inside your own tenant.">
+<meta name="description" content="Hridhaan reads research and development documents, maps them against a dated version of the rulebook that governs them, and returns findings that cite their own evidence. One engine, five rule packs, running inside your tenant.">
 <link rel="canonical" href="https://hridhaan.ai/">
 <meta property="og:title" content="Hridhaan Systems — Evidence-grade AI for regulated decisions">
-<meta property="og:description" content="Read the documents. Map them to the rules. Produce the evidence trail. The decision stays with the expert.">
+<meta property="og:description" content="Screen every document. Prove every decision. Findings that cite the passage that triggered them, against a dated version of the rulebook.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://hridhaan.ai/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,9 @@
   <div class="wrap">
     <a class="brand" href="index.html">Hridhaan<span class="dot">.</span></a>
     <div class="nav-links">
-      <a href="#engine">Platform</a>
+      <a href="#output">Product</a>
       <a href="use-cases.html">Use cases</a>
+      <a href="#evaluation">Evaluation</a>
       <a href="#deployment">Deployment</a>
       <a href="about.html">About</a>
     </div>
@@ -34,54 +35,17 @@
 <!-- ── Hero ──────────────────────────────────────────────────────────── -->
 <section class="hero plain">
   <div class="wrap">
-    <div class="hero-tag">Hridhaan Systems</div>
-    <h1>Evidence-grade AI for regulated decisions</h1>
+    <div class="hero-tag">Hridhaan Systems — evidence-grade AI for regulated decisions</div>
+    <h1>Screen every document. Prove every decision.</h1>
     <p class="sub">
-      We read research and development documents, map them against the rules that govern them,
-      and return citation-backed, auditable output. The decision stays with the expert.
-      The evidence trail is produced for them.
+      We read research and development documents, map them against the rulebook that governs them —
+      at a dated version of that rulebook — and return findings that cite the passage each one came from.
+      Your expert still decides. The evidence trail is written for them.
     </p>
     <div class="hero-cta">
       <a class="btn lg" href="mailto:hello@hridhaan.ai?subject=Hridhaan%20—%20assessment%20engagement">Book a call</a>
-      <a class="btn lg ghost" href="use-cases.html">See the five rule packs</a>
+      <a class="btn lg ghost" href="#output">See what it produces</a>
     </div>
-
-    <!-- Illustrative output -->
-    <div class="mock">
-      <div class="mock-bar">
-        <span class="dots"><i></i><i></i><i></i></span>
-        <span class="grow"></span>
-        <span>evidence pack · assessment record</span>
-        <span class="grow"></span>
-        <span>rule pack 01 · dual-use screening</span>
-      </div>
-      <div class="mock-body">
-        <div>
-          <div class="mock-h">Findings — each traced to source</div>
-          <div class="finding">
-            <div class="crit">Criterion touched — enhancement of transmissibility</div>
-            <div class="quote">“…serial passage in a permissive cell line to select for variants with increased receptor affinity…”</div>
-            <div class="cite">§ Proposed work, p. 14, ¶3 · document v2 · 2026-08-11</div>
-          </div>
-          <div class="finding">
-            <div class="crit">Criterion touched — pathogen of pandemic potential</div>
-            <div class="quote">“…the isolate is handled under BSL-3 containment for the duration of the challenge study…”</div>
-            <div class="cite">§ Methods, p. 22, ¶1 · document v2 · 2026-08-11</div>
-          </div>
-        </div>
-        <div>
-          <div class="mock-h">Audit record</div>
-          <div class="kv"><span class="k">Framework version</span><span class="v">USG DURC/PEPP 2024-05</span></div>
-          <div class="kv"><span class="k">Rule pack</span><span class="v">dual-use v1.4.2</span></div>
-          <div class="kv"><span class="k">Model &amp; prompt</span><span class="v">pinned · hash 8f2c1a</span></div>
-          <div class="kv"><span class="k">Confidence</span><span class="v"><span class="pill">Review required</span></span></div>
-          <div class="kv"><span class="k">Routed to</span><span class="v">named reviewer</span></div>
-          <div class="kv"><span class="k">Assessed</span><span class="v">2026-08-11 09:41 UTC</span></div>
-          <div class="kv"><span class="k">Reproducible</span><span class="v">re-runnable on demand</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="mock-note">Illustrative output. Every finding cites the passage that triggered it, against a dated version of the rulebook.</p>
   </div>
 </section>
 
@@ -104,53 +68,132 @@
 <section id="problem" class="plain">
   <div class="wrap">
     <div class="eyebrow">01 — The problem</div>
-    <h2 class="sec">Judgement at a volume no expert team can cover — and proof of how each one was reached</h2>
+    <h2 class="sec">Judgement at a volume no expert team can cover</h2>
     <p class="lede">
-      Regulated organisations are asked to assess documents faster than their experts can read them,
-      then to reconstruct the reasoning years later for someone who was not in the room.
+      Three different functions, one shape of work: read unstructured documents, apply an external
+      rulebook, record the reasoning, decide. Then prove it years later to someone who was not in the room.
     </p>
 
     <div class="grid-3">
       <div class="card">
         <span class="num">A funder</span>
         <h3>Several hundred proposals a cycle</h3>
-        <p>Must confirm that none of them creates a biosecurity risk — before money is committed.</p>
+        <p>Must confirm none of them creates a biosecurity risk — before money is committed.</p>
       </div>
       <div class="card">
         <span class="num">A pharmaceutical company</span>
         <h3>Every collaboration and exchange</h3>
-        <p>Must screen technical content against export control lists, and prove which list version applied.</p>
+        <p>Must screen technical content against control lists, and prove which list version applied.</p>
       </div>
       <div class="card">
         <span class="num">A quality team</span>
         <h3>Every deviation, every investigation</h3>
-        <p>Must reconstruct its reasoning years later, for an inspector who arrives without notice.</p>
+        <p>Must reconstruct its reasoning for an inspector who arrives without notice.</p>
       </div>
     </div>
 
     <div class="pull">
-      <p>All three are the same shape of work: read unstructured documents, apply an external rulebook, record the reasoning, decide.</p>
+      <p>The cost is not the reading. It is the evidence.</p>
       <p class="small">
-        Today this is done by hand. The cost is not the reading — it is the evidence. Guidance issued to research funders by the
-        Nuclear Threat Initiative instructs them to limit biosecurity review to shortlisted proposals in order to conserve resources.
-        The organisations that need this most have already written down that they cannot afford to do it properly.
+        Guidance issued to research funders by the Nuclear Threat Initiative instructs them to limit
+        biosecurity review to shortlisted proposals in order to conserve resources. The organisations
+        that need this most have already written down that they cannot afford to do it properly.
       </p>
     </div>
 
-    <p class="lede" style="margin-top:40px;">
-      <strong>General assistants have made the reading cheap. They have not made the evidence admissible.</strong>
+    <div class="stats">
+      <div>
+        <div class="fig">3 rewrites</div>
+        <div class="cap">US policy on high-risk life sciences research was rewritten in 2024, again in 2025, and again in July 2026. The EU Biotech Act extends duties from funders to companies and laboratories.</div>
+      </div>
+      <div>
+        <div class="fig">20 years</div>
+        <div class="cap">Export-control screening software has sold into European industry for two decades. The category is proven and the willingness to pay is established.</div>
+      </div>
+      <div>
+        <div class="fig">No vendor</div>
+        <div class="cap">None was found operating at the document layer in English, German or French. The existing tools classify catalogued goods, or hand you a self-assessment questionnaire.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What it produces ──────────────────────────────────────────────── -->
+<section id="output" class="tint">
+  <div class="wrap">
+    <div class="eyebrow">02 — What it produces</div>
+    <h2 class="sec">Not an answer. An assessment you can defend.</h2>
+    <p class="lede">
+      Every question in the framework is answered explicitly, and every answer quotes the sentence that
+      drove it. A reviewer checks the quotes rather than re-reading the document.
     </p>
+
+    <div class="example">
+      <div>
+        <div class="ex-h"><span>Input — submitted proposal</span><span>34 pages</span></div>
+        <div class="doc">
+          <span class="sec-lbl">§ 2.1 &nbsp;Proposed work</span>
+          The programme will construct <mark class="hot">chimeric viruses carrying surface glycoproteins from
+          bat-derived sarbecoviruses</mark> on a laboratory backbone, and <mark class="hot">passage the resulting
+          constructs through a humanised animal model</mark> to characterise replication kinetics.
+
+          <span class="sec-lbl">§ 2.4 &nbsp;Containment</span>
+          All work involving <mark>live virus is conducted under BSL-3 containment</mark>, with challenge
+          studies performed in the partner facility.
+
+          <span class="sec-lbl">§ 5.2 &nbsp;Prior work <em style="color:var(--ink-4);font-weight:400;">(excluded from assessment)</em></span>
+          Previously the group completed a serological survey using archived human sera…
+        </div>
+      </div>
+      <div>
+        <div class="ex-h"><span>Output — assessment record</span><span>rule pack 01</span></div>
+
+        <div class="out-item hit">
+          <div class="q">Q1 · Live pathogens or virus construction</div>
+          <div class="a">Yes</div>
+          <p class="why">Construction of chimeric viruses is explicitly proposed.</p>
+          <div class="src">§ 2.1, ¶1</div>
+        </div>
+
+        <div class="out-item hit">
+          <div class="q">Q2 · Controlled-list, RG3/4 or novel agent</div>
+          <div class="a">Yes</div>
+          <p class="why">Sarbecovirus-derived constructs; containment level stated by the applicant corroborates.</p>
+          <div class="src">§ 2.1, ¶1 · § 2.4, ¶1</div>
+        </div>
+
+        <div class="out-item hot">
+          <div class="q">Q3 · Enhanced epidemic or pandemic potential</div>
+          <div class="a">Yes</div>
+          <p class="why">Chimeric construction combined with passage through a humanised host is capable of enhancing a viral characteristic.</p>
+          <div class="src">§ 2.1, ¶1</div>
+        </div>
+
+        <div class="out-item">
+          <div class="q">Scope control</div>
+          <div class="a">Prior work excluded</div>
+          <p class="why">§ 5.2 describes completed work and is not assessed. Only proposed work drives the outcome.</p>
+        </div>
+
+        <div class="verdict">
+          <div class="lbl">Outcome</div>
+          <div class="val">Highest risk grade — mandatory expert review</div>
+          <p class="note">Routed to a named assessor with the findings, the citations, and a drafted memo. Hridhaan does not approve or reject anything.</p>
+        </div>
+      </div>
+    </div>
+    <p class="mock-note">Illustrative example using publicly described policy criteria. No customer document is reproduced.</p>
   </div>
 </section>
 
 <!-- ── The engine ────────────────────────────────────────────────────── -->
-<section id="engine" class="tint">
+<section id="engine" class="plain">
   <div class="wrap">
-    <div class="eyebrow">02 — The engine</div>
+    <div class="eyebrow">03 — The engine</div>
     <h2 class="sec">One pipeline. Five rule packs.</h2>
     <p class="lede">
-      The engine does not change between use cases — only the rulebook it is pointed at,
-      and the dated version of that rulebook in force at the moment of assessment.
+      The engine does not change between use cases — only the rulebook it is pointed at, and the dated
+      version of that rulebook in force at the moment of assessment.
     </p>
 
     <div class="pipeline">
@@ -180,10 +223,60 @@
         <p>To a named human reviewer, who makes the decision and signs it.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="pull">
-      <p>The output is not an answer. The output is a decision-ready evidence pack.</p>
-      <p class="small">Findings, citations, confidence, and the documentation a reviewer or an inspector will ask for.</p>
+<!-- ── Evaluation ────────────────────────────────────────────────────── -->
+<section id="evaluation" class="tint">
+  <div class="wrap">
+    <div class="eyebrow">04 — Evaluation</div>
+    <h2 class="sec">How we know a rule pack is right</h2>
+    <p class="lede">
+      Anyone can produce a confident classification. The question a regulated buyer asks is how you
+      measured it, and what happens when you are wrong. Each rule pack is built against an
+      expert-labelled evaluation set drawn from the customer's own historic decisions, and no version
+      ships until it clears the gate.
+    </p>
+
+    <div class="gate">
+      <div class="gate-h"><span>Release gate</span>Every rule pack version, before it reaches production</div>
+      <ul>
+        <li>
+          <span class="tick"></span>
+          <div>
+            <b>Agreement with expert consensus</b>
+            <span class="d">Scored against the labelled set, at a threshold agreed with the customer in writing before work begins.</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick"></span>
+          <div>
+            <b>Zero misses on designated critical criteria</b>
+            <span class="d">The customer names the criteria where a false negative is unacceptable. Those are measured separately, and they gate the release.</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick"></span>
+          <div>
+            <b>Determinism verified</b>
+            <span class="d">The same document, against the same rule pack version, returns the same findings on repeated runs — and again months later.</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick"></span>
+          <div>
+            <b>Fails closed, never open</b>
+            <span class="d">A document the system cannot assess is escalated for mandatory human review, not returned as an error and quietly waved through.</span>
+          </div>
+        </li>
+        <li>
+          <span class="tick"></span>
+          <div>
+            <b>Validation pack generated</b>
+            <span class="d">The documentation your quality function needs to sign the system off for its intended use is produced by the release, not written afterwards by hand.</span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
@@ -191,7 +284,7 @@
 <!-- ── Rule packs ────────────────────────────────────────────────────── -->
 <section id="rule-packs" class="plain">
   <div class="wrap">
-    <div class="eyebrow">03 — Rule packs</div>
+    <div class="eyebrow">05 — Rule packs</div>
     <h2 class="sec">Five rule packs, in the order we intend to build them</h2>
     <p class="lede">Same engine. Different rulebook. Each one produces the artifact its buyer already has to write by hand.</p>
 
@@ -267,12 +360,12 @@
 <!-- ── Deployment ────────────────────────────────────────────────────── -->
 <section id="deployment" class="tint">
   <div class="wrap">
-    <div class="eyebrow">04 — Deployment</div>
+    <div class="eyebrow">06 — Deployment</div>
     <h2 class="sec">It runs inside your tenant. Documents never leave.</h2>
     <p class="lede">
-      Rule packs and logic arrive as signed, versioned bundles over an outbound connection — the same pattern
-      any licensed enterprise software uses. Where a customer permits no outbound connection at all,
-      bundles are delivered as signed offline packages.
+      Rule packs and logic arrive as signed, versioned bundles over an outbound connection — the same
+      pattern any licensed enterprise software uses. Where no outbound connection is permitted at all,
+      the same bundle is delivered as a signed offline package.
     </p>
 
     <div class="grid-3">
@@ -283,111 +376,72 @@
       </div>
       <div class="card">
         <span class="num">Updates</span>
-        <h3>Signed, versioned bundles</h3>
-        <p>You choose when a rule pack version changes, and every assessment records which one it ran against.</p>
+        <h3>You choose when the rules change</h3>
+        <p>A rule pack version changes when you accept it — and every assessment records which one it ran against.</p>
       </div>
       <div class="card">
         <span class="num">Air-gapped</span>
         <h3>Offline delivery</h3>
-        <p>Where no outbound connection is permitted, the same bundle is delivered as a signed offline package.</p>
+        <p>Signed offline packages where an outbound connection is not permitted.</p>
       </div>
     </div>
-
-    <p class="lede" style="margin-top:40px;">
-      This matters commercially as much as technically: it removes the largest procurement objection
-      before it is raised, and it keeps a single codebase across every customer.
-    </p>
   </div>
 </section>
 
-<!-- ── Durability ────────────────────────────────────────────────────── -->
-<section id="durability" class="plain">
+<!-- ── Versus ────────────────────────────────────────────────────────── -->
+<section id="versus" class="plain">
   <div class="wrap">
-    <div class="eyebrow">05 — Durability</div>
-    <h2 class="sec">What holds when the models improve</h2>
+    <div class="eyebrow">07 — The obvious question</div>
+    <h2 class="sec">Why not just use a general assistant?</h2>
     <p class="lede">
-      Intelligence gets cheaper with every model release. Accountability does not.
-      Four things survive the next frontier model, and they are the product.
+      Because it reads well. That is not the part you are being audited on.
     </p>
 
-    <div class="grid-2">
-      <div class="card">
-        <span class="num">01</span>
-        <h3>Versioned determinism</h3>
-        <p>A regulated workflow needs the same input to return the same output three years later, or a documented reason why not. That guarantee cannot be given by a vendor whose business depends on continuous upgrade.</p>
-      </div>
-      <div class="card">
-        <span class="num">02</span>
-        <h3>Validation and named accountability</h3>
-        <p>Someone must sign that the system is validated for its intended use. The foundation model vendors will not sign. Transferring that accountability is the product.</p>
-      </div>
-      <div class="card">
-        <span class="num">03</span>
-        <h3>Curated rule packs and expert-labelled evaluation sets</h3>
-        <p>The model knows the world. It does not know this organisation's interpretation of Annex I, or its SOP hierarchy. That is curation work — labour, not intelligence — and model releases do not erode labour.</p>
-      </div>
-      <div class="card">
-        <span class="num">04</span>
-        <h3>Write-back into the system of record</h3>
-        <p>A general assistant reads. It does not write into a safety database or quality system under change control, with e-signatures and an audit trail that satisfies 21 CFR Part 11.</p>
-      </div>
-    </div>
-
-    <div class="compare">
-      <div>
-        <h4>Where the investment goes</h4>
-        <ul>
-          <li>Versioning and determinism</li>
-          <li>Automatic generation of validation documentation</li>
-          <li>Expert-labelled evaluation sets</li>
-          <li>Part 11-compliant write-back into systems of record</li>
-          <li>Dated versioning of rule packs</li>
-        </ul>
-      </div>
-      <div class="x">
-        <h4>Where it does not — free in the next release</h4>
-        <ul>
-          <li>Better prompts</li>
-          <li>Better retrieval</li>
-          <li>Multilingual capability</li>
-          <li>Summarisation quality</li>
-          <li>Raw model performance</li>
-        </ul>
-      </div>
-    </div>
+    <table class="vs">
+      <thead>
+        <tr>
+          <th></th>
+          <th>General assistant</th>
+          <th>Hridhaan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Same input, same output</td>
+          <td class="gen">The model is upgraded underneath you, without your consent and on the vendor's schedule.</td>
+          <td class="us">Model, prompt and rule pack are pinned and recorded. The assessment is re-runnable years later.</td>
+        </tr>
+        <tr>
+          <td>Which rulebook applied</td>
+          <td class="gen">Whatever version it happens to recall, unstated.</td>
+          <td class="us">The dated framework version is recorded on every assessment, because that is what you will be asked.</td>
+        </tr>
+        <tr>
+          <td>Evidence</td>
+          <td class="gen">A fluent summary. Citations if you remember to ask, and not always to the right passage.</td>
+          <td class="us">Every finding quotes the passage that triggered it, located to section and paragraph.</td>
+        </tr>
+        <tr>
+          <td>Validation</td>
+          <td class="gen">No vendor will sign that it is validated for your intended use.</td>
+          <td class="us">Validation documentation is generated per release, against an evaluation set built from your own decisions.</td>
+        </tr>
+        <tr>
+          <td>Your systems of record</td>
+          <td class="gen">Reads. Does not write into a safety or quality system.</td>
+          <td class="us">Writes back under formal change control, with e-signature and audit trail.</td>
+        </tr>
+        <tr>
+          <td>Accountability</td>
+          <td class="gen">Sits with whoever pasted the document in.</td>
+          <td class="us">Contractual, and named.</td>
+        </tr>
+      </tbody>
+    </table>
 
     <p class="lede" style="margin-top:36px;">
-      The product is partly unglamorous plumbing — versioning, signatures, documentation, audit.
-      That is the good news: <strong>model releases commoditise intelligence, not plumbing.</strong>
-    </p>
-  </div>
-</section>
-
-<!-- ── Why now ───────────────────────────────────────────────────────── -->
-<section id="why-now" class="tint">
-  <div class="wrap">
-    <div class="eyebrow">06 — Why now</div>
-    <h2 class="sec">Regulatory load is rising, not settling</h2>
-    <div class="grid-3">
-      <div class="card">
-        <span class="num">Policy</span>
-        <h3>Rewritten three times</h3>
-        <p>US policy on high-risk life sciences research was rewritten in 2024, again in 2025, and again in July 2026. The EU Biotech Act extends duties from funders to companies and laboratories.</p>
-      </div>
-      <div class="card">
-        <span class="num">Incentives</span>
-        <h3>Not the assistants' problem to solve</h3>
-        <p>Closing the evidence gap works against the general assistants' own business model, because it would mean freezing model versions on a customer's behalf.</p>
-      </div>
-      <div class="card">
-        <span class="num">Category</span>
-        <h3>Proven, and unoccupied</h3>
-        <p>The adjacent export-control software market has sold list-based screening for twenty years — the category and the willingness to pay are established. No vendor was found operating at the document layer in English, German or French.</p>
-      </div>
-    </div>
-    <p class="lede" style="margin-top:40px;">
-      The window is real but not permanent. Established vendors can build this once the market is visibly large.
-      The defence is to be inside a validated workflow before that happens.
+      Intelligence gets cheaper with every model release. Accountability does not.
+      <strong>Model releases commoditise intelligence, not evidence.</strong>
     </p>
   </div>
 </section>
@@ -415,8 +469,9 @@
         <p>Evidence-grade AI for regulated decisions. Read the documents, map them to the rules, produce the evidence trail — the decision stays with the expert.</p>
       </div>
       <div class="foot-links">
-        <a href="#engine">Platform</a>
+        <a href="#output">Product</a>
         <a href="use-cases.html">Use cases</a>
+        <a href="#evaluation">Evaluation</a>
         <a href="#deployment">Deployment</a>
         <a href="about.html">About</a>
         <a href="mailto:hello@hridhaan.ai">Contact</a>
@@ -431,9 +486,7 @@
 
 <script>
   var nav = document.getElementById('nav');
-  var onScroll = function () {
-    nav.classList.toggle('scrolled', window.scrollY > 8);
-  };
+  var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 </script>
