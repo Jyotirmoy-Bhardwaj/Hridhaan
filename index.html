@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hridhaan Systems — Evidence-grade AI for regulated decisions</title>
-<meta name="description" content="Hridhaan reads research and development documents, maps them against a dated version of the rulebook that governs them, and returns findings that cite their own evidence. One engine, five rule packs, running inside your tenant.">
+<meta name="description" content="Hridhaan reads research and development documents, maps them against a dated version of the rulebook that governs them, and returns findings that cite their own evidence. One engine, five rule packs, designed to run inside your tenant.">
 <link rel="canonical" href="https://hridhaan.ai/">
 <meta property="og:title" content="Hridhaan Systems — Evidence-grade AI for regulated decisions">
 <meta property="og:description" content="Screen every document. Prove every decision. Findings that cite the passage that triggered them, against a dated version of the rulebook.">
@@ -52,7 +52,7 @@
 <!-- ── Framework strip ───────────────────────────────────────────────── -->
 <div class="strip">
   <div class="wrap">
-    <div class="label">Frameworks the engine is pointed at</div>
+    <div class="label">Frameworks the rule packs map against</div>
     <div class="items">
       <span>US DURC &amp; PEPP criteria</span>
       <span>EU Regulation 2021/821 Annex I</span>
@@ -193,7 +193,8 @@
     <h2 class="sec">One pipeline. Five rule packs.</h2>
     <p class="lede">
       The engine does not change between use cases — only the rulebook it is pointed at, and the dated
-      version of that rulebook in force at the moment of assessment.
+      version of that rulebook in force at the moment of assessment. One rule pack is built today;
+      the rest reuse this same pipeline.
     </p>
 
     <div class="pipeline">
@@ -285,14 +286,21 @@
 <section id="rule-packs" class="plain">
   <div class="wrap">
     <div class="eyebrow">05 — Rule packs</div>
-    <h2 class="sec">Five rule packs, in the order we intend to build them</h2>
-    <p class="lede">Same engine. Different rulebook. Each one produces the artifact its buyer already has to write by hand.</p>
+    <h2 class="sec">Five rule packs on one engine</h2>
+    <p class="lede">
+      Same engine. Different rulebook. Each one produces the artifact its buyer already has to write by hand.
+    </p>
+    <div class="status-note">
+      <b>Where this stands today.</b> Rule pack 01 is built and runs end to end. The other four are in
+      development on the same pipeline — described here as designed, not as delivered. Tenant deployment
+      and write-back into a system of record are implemented per engagement, against your environment.
+    </div>
 
     <div class="packs">
       <a class="pack" href="use-cases.html#dual-use">
         <div class="idx">01</div>
         <div>
-          <span class="badge">First to build</span>
+          <span class="badge">Built</span>
           <h3>Dual-use &amp; biosecurity screening</h3>
           <p style="font-size:15.5px;margin:0;">Screens research proposals for content that could create biosecurity or dual-use risk, before funding is committed.</p>
         </div>
@@ -305,7 +313,7 @@
       <a class="pack" href="use-cases.html#export-control">
         <div class="idx">02</div>
         <div>
-          <span class="badge warm">Largest long-term market</span>
+          <span class="badge mute">In development</span>
           <h3>Export control &amp; technology transfer</h3>
           <p style="font-size:15.5px;margin:0;">Screens technical content and intangible transfer against control lists, and records the dated version applied.</p>
         </div>
@@ -318,7 +326,7 @@
       <a class="pack" href="use-cases.html#pharmacovigilance">
         <div class="idx">03</div>
         <div>
-          <span class="badge mute">High volume</span>
+          <span class="badge mute">In development</span>
           <h3>Pharmacovigilance case triage</h3>
           <p style="font-size:15.5px;margin:0;">Triages incoming adverse event cases and drafts the narrative, inside a validated environment.</p>
         </div>
@@ -331,7 +339,7 @@
       <a class="pack" href="use-cases.html#capa">
         <div class="idx">04</div>
         <div>
-          <span class="badge mute">Largest pharma market</span>
+          <span class="badge mute">In development</span>
           <h3>Deviation &amp; CAPA investigation</h3>
           <p style="font-size:15.5px;margin:0;">Assembles the evidence base for a quality investigation and drafts the reasoning, on top of the existing quality system.</p>
         </div>
@@ -344,7 +352,7 @@
       <a class="pack" href="use-cases.html#submission">
         <div class="idx">05</div>
         <div>
-          <span class="badge mute">Held in reserve</span>
+          <span class="badge mute">In development</span>
           <h3>Regulatory submission consistency</h3>
           <p style="font-size:15.5px;margin:0;">Checks a submission for internal contradiction across modules before it goes to the agency.</p>
         </div>
@@ -361,7 +369,7 @@
 <section id="deployment" class="tint">
   <div class="wrap">
     <div class="eyebrow">06 — Deployment</div>
-    <h2 class="sec">It runs inside your tenant. Documents never leave.</h2>
+    <h2 class="sec">Designed to run inside your tenant. Documents never leave.</h2>
     <p class="lede">
       Rule packs and logic arrive as signed, versioned bundles over an outbound connection — the same
       pattern any licensed enterprise software uses. Where no outbound connection is permitted at all,
@@ -429,7 +437,7 @@
         <tr>
           <td>Your systems of record</td>
           <td class="gen">Reads. Does not write into a safety or quality system.</td>
-          <td class="us">Writes back under formal change control, with e-signature and audit trail.</td>
+          <td class="us">Designed to write back under formal change control, with e-signature and audit trail.</td>
         </tr>
         <tr>
           <td>Accountability</td>
