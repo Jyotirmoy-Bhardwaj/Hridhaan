@@ -402,15 +402,15 @@ a.pack:hover h3 { color: var(--accent); }
 
 /* ── CTA band ────────────────────────────────────────────────────────── */
 .cta {
-  background: var(--ink);
-  color: #cfd8da;
+  background: var(--accent-dk);
+  color: #cfe2de;
   border-top: none;
 }
 .cta h2 { color: #fff; font-size: clamp(26px, 3.2vw, 36px); line-height: 1.16; max-width: 28ch; text-wrap: balance; margin-bottom: 18px; }
-.cta p { font-size: 18px; max-width: 60ch; color: #b7c2c4; }
+.cta p { font-size: 18px; max-width: 66ch; color: #bcd6d1; }
 .cta .btn { background: #fff; border-color: #fff; color: var(--ink); margin-top: 18px; }
 .cta .btn:hover { background: var(--accent-lt); border-color: var(--accent-lt); }
-.cta .terms { margin-top: 26px; font-size: 14.5px; color: #8a9799; }
+.cta .terms { margin-top: 24px; font-size: 14.5px; color: #9dc0ba; }
 
 /* ── Footer ──────────────────────────────────────────────────────────── */
 footer { padding: 46px 0 54px; border-top: 1px solid var(--rule); background: var(--paper-2); }
