@@ -638,8 +638,8 @@ footer { padding: 46px 0 54px; border-top: 1px solid var(--rule); background: va
 }
 .hero-c h1 .lt { color: var(--accent); }
 .hero-c .sub {
-  font-size: 19.5px; line-height: 1.58; color: var(--ink-2);
-  max-width: 60ch; margin: 0 auto;
+  font-size: 20.5px; line-height: 1.5; color: var(--ink-2);
+  max-width: 92ch; margin: 0 auto; text-wrap: balance;
 }
 .hero-c .hero-cta { justify-content: center; margin-top: 36px; }
 .hero-c .tag {
