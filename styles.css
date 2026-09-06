@@ -462,3 +462,60 @@ footer { padding: 46px 0 54px; border-top: 1px solid var(--rule); background: va
   max-width: 78ch;
 }
 .status-note b { color: var(--ink); }
+
+/* ── Regulatory ticker ───────────────────────────────────────────────── */
+.ticker {
+  background: #0d1424;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+  overflow: hidden;
+  position: relative;
+}
+.ticker .rail { display: flex; width: max-content; animation: tick 78s linear infinite; }
+.ticker .track { display: flex; align-items: center; gap: 46px; padding: 9px 23px 9px 0; white-space: nowrap; }
+.ticker .item { font-size: 12.3px; color: #94a3b0; letter-spacing: .005em; }
+.ticker .item b { color: #e8eef0; font-weight: 600; }
+.ticker .item::after { content: "·"; color: #3d4a5c; margin-left: 46px; }
+@keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker:hover .rail { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker .rail { animation: none; }
+  .ticker { overflow-x: auto; }
+}
+
+/* ── Manifesto ───────────────────────────────────────────────────────── */
+.manifesto {
+  background: #0d1424;
+  color: #aebbc6;
+  border-top: none;
+  padding: 108px 0 112px;
+  position: relative;
+  overflow: hidden;
+}
+.manifesto::after {
+  content: "";
+  position: absolute; right: -180px; top: 50%; transform: translateY(-50%);
+  width: 620px; height: 620px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(45,122,111,.30) 0%, rgba(13,20,36,0) 68%);
+  pointer-events: none;
+}
+.manifesto .wrap { position: relative; z-index: 1; }
+.manifesto .eyebrow { color: #6fb3a7; }
+.manifesto .eyebrow::before { background: #6fb3a7; }
+.manifesto h2 {
+  color: #fff;
+  font-size: clamp(27px, 3.5vw, 40px);
+  line-height: 1.2;
+  letter-spacing: -0.028em;
+  max-width: 22ch;
+  text-wrap: balance;
+  margin-bottom: 30px;
+}
+.manifesto .col { max-width: 68ch; }
+.manifesto p { font-size: 17.5px; line-height: 1.68; margin-bottom: 1.15em; }
+.manifesto strong { color: #fff; font-weight: 600; }
+.manifesto .close {
+  margin-top: 34px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.15);
+  font-size: 20px; line-height: 1.42; color: #fff; font-weight: 500;
+  letter-spacing: -0.015em; max-width: 46ch;
+}
