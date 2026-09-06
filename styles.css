@@ -617,3 +617,5 @@ footer .foot-legal a { color: var(--ink-4); }
 footer .foot-legal a:hover { color: var(--accent); }
 @media (max-width: 900px) { footer .foot-cols { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { footer .foot-cols { grid-template-columns: 1fr; } }
+
+.strip .items.roadmap span { color: var(--ink-4); font-weight: 400; }
