@@ -919,3 +919,6 @@ a.pack:hover { transform: translateX(3px); }
   .js .arch svg > g, .js .arch svg > line { opacity: 1; transition: none; }
   a.pack:hover, .card:hover { transform: none; }
 }
+
+/* anchored targets clear the sticky nav */
+[id] { scroll-margin-top: 92px; }
