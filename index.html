@@ -132,9 +132,67 @@
       full. Map to a dated framework version. Cite the passage. Route to a named human, who signs.
     </p>
 
-    <figure class="figure-slot" style="margin-bottom:0;">
-      <!-- Replace this whole figure with:  <img src="assets/architecture.png" alt="Hridhaan architecture"> -->
-      <span class="ph">Architecture diagram</span>
+    <figure class="arch">
+      <svg viewBox="0 0 1120 400" role="img" aria-labelledby="arch-t">
+        <title id="arch-t">Documents enter the pipeline inside your tenant, are mapped to a dated rule pack, and leave as a cited evidence pack routed to a named reviewer.</title>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="#c9d1cf"/>
+          </marker>
+        </defs>
+
+        <!-- input documents -->
+        <g class="doc-in">
+          <rect x="18"  y="150" width="86" height="108" rx="6"/>
+          <rect x="28"  y="140" width="86" height="108" rx="6"/>
+          <rect x="38"  y="130" width="86" height="108" rx="6"/>
+          <line x1="54" y1="156" x2="108" y2="156"/>
+          <line x1="54" y1="172" x2="108" y2="172"/>
+          <line x1="54" y1="188" x2="92"  y2="188"/>
+        </g>
+        <text class="lbl" x="18" y="288">Proposals, protocols,</text>
+        <text class="lbl" x="18" y="304">technical files</text>
+
+        <line class="flow" x1="132" y1="184" x2="176" y2="184" marker-end="url(#ah)"/>
+
+        <!-- tenant boundary -->
+        <rect class="tenant" x="188" y="52" width="626" height="296" rx="12"/>
+        <text class="tenant-lbl" x="208" y="80">YOUR TENANT — DOCUMENTS NEVER LEAVE</text>
+
+        <!-- pipeline steps -->
+        <g class="step"><rect x="212" y="140" width="132" height="70" rx="8"/></g>
+        <text class="st-n" x="228" y="166">01</text><text class="st-t" x="228" y="190">Read</text>
+
+        <g class="step"><rect x="360" y="140" width="132" height="70" rx="8"/></g>
+        <text class="st-n" x="376" y="166">02</text><text class="st-t" x="376" y="190">Map</text>
+
+        <g class="step"><rect x="508" y="140" width="132" height="70" rx="8"/></g>
+        <text class="st-n" x="524" y="166">03</text><text class="st-t" x="524" y="190">Cite</text>
+
+        <g class="step"><rect x="656" y="140" width="132" height="70" rx="8"/></g>
+        <text class="st-n" x="672" y="166">04</text><text class="st-t" x="672" y="190">Record</text>
+
+        <line class="flow" x1="348" y1="175" x2="356" y2="175" marker-end="url(#ah)"/>
+        <line class="flow" x1="496" y1="175" x2="504" y2="175" marker-end="url(#ah)"/>
+        <line class="flow" x1="644" y1="175" x2="652" y2="175" marker-end="url(#ah)"/>
+
+        <!-- dated rule pack feeding the Map step -->
+        <rect class="chip" x="336" y="256" width="180" height="46" rx="7"/>
+        <text class="chip-t" x="352" y="275">rule pack  v1.4.2</text>
+        <text class="chip-s" x="352" y="292">dated · signed · pinned</text>
+        <line class="dash" x1="426" y1="254" x2="426" y2="214" marker-end="url(#ah)"/>
+
+        <line class="flow" x1="822" y1="184" x2="866" y2="184" marker-end="url(#ah)"/>
+
+        <!-- evidence pack out -->
+        <rect class="out" x="874" y="118" width="228" height="132" rx="9"/>
+        <text class="out-h" x="896" y="148">Evidence pack</text>
+        <text class="out-l" x="896" y="176">Findings, each cited</text>
+        <text class="out-l" x="896" y="198">Framework version applied</text>
+        <text class="out-l" x="896" y="220">Full audit record</text>
+        <text class="lbl" x="874" y="282">Routed to a named</text>
+        <text class="lbl" x="874" y="298">reviewer, who signs</text>
+      </svg>
     </figure>
   </div>
 </section>
