@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://hridhaan.ai/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -326,6 +327,30 @@
     t.addEventListener('click', function (e) { e.stopPropagation(); open(!wrap.classList.contains('open')); });
     document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) open(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+  })();
+</script>
+
+
+<script>
+  (function () {
+    var sel = '.eyebrow, h2.sec, .lede, .arch, .example, .mock-note, .pack, .card,' +
+              ' .split > div, .stats > div, .status-note, .statement .wrap > *,' +
+              ' .cta .wrap > *, .page-head > .wrap > *, .uc-head, .uc h2, .uc .intro, .uc-cols > div,' +
+              ' .manifesto .wrap > *';
+    var els = [].slice.call(document.querySelectorAll(sel));
+    if (!els.length) return;
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    els.forEach(function (el) { el.classList.add('rv'); });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
   })();
 </script>
 

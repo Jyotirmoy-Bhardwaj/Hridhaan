@@ -833,7 +833,7 @@ a.pack:hover .ic { stroke: var(--accent-dk); }
 .arch .dash { stroke: var(--rule-2); stroke-width: 1.4; stroke-dasharray: 4 4; }
 .arch .tenant { fill: #fbfcfc; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 7 5; }
 .arch .tenant-lbl { font-family: var(--mono); font-size: 11px; letter-spacing: .15em; fill: var(--accent); }
-.arch .step rect { fill: var(--paper); stroke: var(--rule); stroke-width: 1.3; }
+.arch .stepbox { fill: var(--paper); stroke: var(--rule); stroke-width: 1.3; }
 .arch .st-n { font-family: var(--mono); font-size: 11px; fill: var(--ink-4); letter-spacing: .1em; }
 .arch .st-t { font-size: 17px; font-weight: 600; fill: var(--ink); }
 .arch .chip { fill: var(--accent-lt); stroke: #b9d6d0; stroke-width: 1.2; }
@@ -843,3 +843,78 @@ a.pack:hover .ic { stroke: var(--accent-dk); }
 .arch .out-h { font-size: 16.5px; font-weight: 600; fill: var(--ink); }
 .arch .out-l { font-size: 13.5px; fill: var(--ink-2); }
 .arch .lbl { font-size: 13.5px; fill: var(--ink-3); }
+
+/* ══ Motion ══════════════════════════════════════════════════════════════
+   Hand-rolled: no animation library, so the page keeps making zero
+   third-party requests. Everything below is disabled under
+   prefers-reduced-motion, and nothing is hidden when JS is unavailable. */
+
+.js .rv {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .62s cubic-bezier(.22,.61,.36,1),
+              transform .62s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+.js .rv.in { opacity: 1; transform: none; }
+
+/* stagger within repeating groups */
+.js .packs .pack:nth-child(2)  { transition-delay: .06s; }
+.js .packs .pack:nth-child(3)  { transition-delay: .12s; }
+.js .packs .pack:nth-child(4)  { transition-delay: .18s; }
+.js .packs .pack:nth-child(5)  { transition-delay: .24s; }
+.js .grid-3 .card:nth-child(2) { transition-delay: .08s; }
+.js .grid-3 .card:nth-child(3) { transition-delay: .16s; }
+.js .grid-2 .card:nth-child(2) { transition-delay: .08s; }
+.js .split > div:nth-child(2)  { transition-delay: .1s; }
+.js .stats > div:nth-child(2)  { transition-delay: .08s; }
+.js .stats > div:nth-child(3)  { transition-delay: .16s; }
+
+/* hero entrance, on load rather than scroll */
+@keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.js .hero-c .tag,
+.js .hero-c h1,
+.js .hero-c .sub,
+.js .hero-c .hero-cta { opacity: 0; animation: riseIn .7s cubic-bezier(.22,.61,.36,1) forwards; }
+.js .hero-c .tag      { animation-delay: .05s; }
+.js .hero-c h1        { animation-delay: .15s; }
+.js .hero-c .sub      { animation-delay: .28s; }
+.js .hero-c .hero-cta { animation-delay: .40s; }
+
+/* the diagram assembles in the order the pipeline runs */
+.js .arch svg > g,
+.js .arch svg > line { opacity: 0; transition: opacity .5s ease; }
+.js .arch.in svg > g,
+.js .arch.in svg > line { opacity: 1; }
+.js .arch.in .a-in      { transition-delay: .05s; }
+.js .arch.in .f1        { transition-delay: .18s; }
+.js .arch.in .a-tenant  { transition-delay: .26s; }
+.js .arch.in .s1        { transition-delay: .38s; }
+.js .arch.in .f2        { transition-delay: .48s; }
+.js .arch.in .s2        { transition-delay: .56s; }
+.js .arch.in .a-chip    { transition-delay: .66s; }
+.js .arch.in .f3        { transition-delay: .74s; }
+.js .arch.in .s3        { transition-delay: .82s; }
+.js .arch.in .f4        { transition-delay: .90s; }
+.js .arch.in .s4        { transition-delay: .98s; }
+.js .arch.in .f5        { transition-delay: 1.10s; }
+.js .arch.in .a-out     { transition-delay: 1.20s; }
+
+/* interaction */
+.pack { transition: background .18s ease, transform .18s ease; }
+a.pack:hover { transform: translateX(3px); }
+.card { transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.card:hover { border-color: var(--rule-2); transform: translateY(-2px);
+              box-shadow: 0 10px 26px -18px rgba(13,20,23,.3); }
+.btn { transition: background .15s ease, border-color .15s ease, transform .15s ease; }
+.btn:active { transform: translateY(1px); }
+.ic { transition: stroke .18s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .rv, .js .rv.in { opacity: 1; transform: none; transition: none; }
+  .js .hero-c .tag, .js .hero-c h1, .js .hero-c .sub, .js .hero-c .hero-cta {
+    opacity: 1; animation: none;
+  }
+  .js .arch svg > g, .js .arch svg > line { opacity: 1; transition: none; }
+  a.pack:hover, .card:hover { transform: none; }
+}
