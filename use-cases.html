@@ -40,7 +40,33 @@
   <div class="wrap">
     <a class="brand" href="index.html">Hridhaan<span class="dot">.</span></a>
     <div class="nav-links">
-      <a href="index.html#output">Product</a>
+      <div class="has-menu">
+      <button class="menu-trigger" id="menu-trigger" aria-expanded="false" aria-controls="menu-panel">Product<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+      <div class="menu-panel" id="menu-panel">
+        <div class="menu-head">Rule packs</div>
+        <a class="mi" href="use-cases.html#dual-use">
+          <span class="mi-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.4 3.1 8.3 7.5 9.5 4.4-1.2 7.5-5.1 7.5-9.5V6z"/><circle cx="12" cy="11.5" r="2.4"/></svg></span>
+          <span class="mi-t"><b>Biosecurity Screening</b><span>Dual-use risk in research proposals</span></span>
+        </a>
+        <a class="mi" href="use-cases.html#export-control">
+          <span class="mi-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5 10 5l7 3.5-7 3.5z"/><path d="M3 8.5v7L10 19l7-3.5v-7"/><path d="M10 12v7"/><path d="M20.5 3v18" stroke-dasharray="2.5 2.5"/></svg></span>
+          <span class="mi-t"><b>Export Control<em>In development</em></b><span>Technical content against control lists</span></span>
+        </a>
+        <a class="mi" href="use-cases.html#pharmacovigilance">
+          <span class="mi-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3.5l2-5.5 3.5 11 2.5-6.5H21"/></svg></span>
+          <span class="mi-t"><b>Pharmacovigilance Triage<em>Planned</em></b><span>Adverse event cases and narratives</span></span>
+        </a>
+        <a class="mi" href="use-cases.html#capa">
+          <span class="mi-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9z"/><path d="M15 5.5h3v15H6v-15h3"/><path d="M9 13.5l2 2 4-4"/></svg></span>
+          <span class="mi-t"><b>Quality Investigations<em>Planned</em></b><span>Deviation and CAPA evidence base</span></span>
+        </a>
+        <a class="mi" href="use-cases.html#submission">
+          <span class="mi-ic"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h7l4 4v10h-11z"/><path d="M13.5 3v4h4"/><path d="M3.5 7v14h11"/></svg></span>
+          <span class="mi-t"><b>Submission Consistency<em>Planned</em></b><span>Contradictions across submission modules</span></span>
+        </a>
+        <a class="mi all" href="use-cases.html">All use cases &rarr;</a>
+      </div>
+    </div>
       <a href="use-cases.html">Use cases</a>
       <a href="index.html#assurance">Evaluation</a>
       <a href="index.html#assurance">Deployment</a>
@@ -73,7 +99,7 @@
       <span class="idx">RULE PACK 01</span>
       <span class="badge">Available</span>
     </div>
-    <h2>Dual-use and biosecurity screening</h2>
+    <h2>Biosecurity Screening</h2>
     <p class="intro">
       Screens research proposals for content that could create biosecurity or dual-use risk, before
       funding is committed.
@@ -110,7 +136,7 @@
       <span class="idx">RULE PACK 02</span>
       <span class="badge mute">In development</span>
     </div>
-    <h2>Export control and technology transfer</h2>
+    <h2>Export Control</h2>
     <p class="intro">
       Screens technical content and intangible transfer against export control lists, recording
       which dated list version applied.
@@ -147,7 +173,7 @@
       <span class="idx">RULE PACK 03</span>
       <span class="badge mute">Planned</span>
     </div>
-    <h2>Pharmacovigilance case triage</h2>
+    <h2>Pharmacovigilance Triage</h2>
     <p class="intro">
       Triages adverse event cases and drafts the narrative, inside a validated environment that
       writes back under change control.
@@ -184,7 +210,7 @@
       <span class="idx">RULE PACK 04</span>
       <span class="badge mute">Planned</span>
     </div>
-    <h2>Deviation and CAPA investigation</h2>
+    <h2>Quality Investigations</h2>
     <p class="intro">
       Assembles the evidence base for a quality investigation, on top of the existing quality system
       rather than in place of it.
@@ -221,7 +247,7 @@
       <span class="idx">RULE PACK 05</span>
       <span class="badge mute">Planned</span>
     </div>
-    <h2>Regulatory submission consistency</h2>
+    <h2>Submission Consistency</h2>
     <p class="intro">
       Checks a submission for internal contradiction across modules before it goes to the agency.
     </p>
@@ -332,6 +358,19 @@
   var onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+<script>
+  (function () {
+    var t = document.getElementById('menu-trigger');
+    var p = document.getElementById('menu-panel');
+    if (!t || !p) return;
+    var wrap = t.parentNode;
+    function open(v) { wrap.classList.toggle('open', v); t.setAttribute('aria-expanded', v); }
+    t.addEventListener('click', function (e) { e.stopPropagation(); open(!wrap.classList.contains('open')); });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+  })();
 </script>
 
 </body>
