@@ -1060,6 +1060,41 @@ a.pack:hover .ic { stroke: #fff; }
   .has-menu.open:hover .menu-panel { display: grid; }
 }
 
+/* ══ Founder credit ═════════════════════════════════════════════════
+   A name and two links that can be checked, which is the argument the
+   product makes. No photograph — the links carry the evidence. */
+
+.founder {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s1) var(--s3);
+  margin-top: var(--s4); padding: var(--s3);
+  background: var(--paper); border: 1px solid var(--rule);
+  border-left: 4px solid var(--sec); border-radius: var(--r);
+}
+.founder-k {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-4);
+}
+.founder-n { font-size: var(--t-md); font-weight: 600; color: var(--ink); letter-spacing: -.02em; }
+.founder-l { display: flex; flex-wrap: wrap; gap: var(--s3); margin-left: auto; }
+.founder-l a {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: var(--t-sm); font-weight: 500; color: var(--accent);
+}
+.founder-l a svg {
+  width: 12px; height: 12px; flex: none; fill: none;
+  stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* visually hidden, still announced */
+.vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .founder-l { margin-left: 0; width: 100%; }
+}
+
 /* ══ The gap ══════════════════════════════════════════════════════════════════════
    A billboard, not a dashboard: the one comparison that carries the pitch,
    at display size, with everything else supporting it underneath.
