@@ -1075,7 +1075,7 @@ a.pack:hover .ic { stroke: #fff; }
   text-transform: uppercase; color: var(--ink-4);
 }
 .founder-n { font-size: var(--t-md); font-weight: 600; color: var(--ink); letter-spacing: -.02em; }
-.founder-l { display: flex; flex-wrap: wrap; gap: var(--s3); margin-left: auto; }
+.founder-l { display: flex; flex-wrap: wrap; gap: var(--s3); margin: 0 0 var(--s2); }
 .founder-l a {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: var(--t-sm); font-weight: 500; color: var(--accent);
