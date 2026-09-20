@@ -503,6 +503,7 @@ footer { padding: var(--s8) 0 var(--s7); border-top: 1px solid var(--rule); back
   margin-top: var(--s5);
 }
 .step {
+  position: relative; overflow: hidden;
   display: flex; align-items: center; gap: var(--s2);
   flex: 1 1 200px; min-width: 0;
   padding: var(--s2) var(--s3);
@@ -518,6 +519,29 @@ footer { padding: var(--s8) 0 var(--s7); border-top: 1px solid var(--rule); back
 .step.is-on {
   background: var(--blue); border-color: var(--blue); color: #fff;
 }
+
+/* ── Self-playing walkthrough ────────────────────────────────────────────
+   The steps look static, so nobody clicks them. On entering view the
+   walkthrough plays itself once — Submit, Findings, Sign — and then stops
+   on the signature and stays there. The sweep is the timer: the script
+   advances on its animationend, so pausing the animation pauses the
+   walkthrough with no second clock to drift. Hovering pauses; touching
+   any tab ends the playback for good. */
+
+.step::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  height: 3px; width: 100%;
+  background: rgba(255,255,255,.62);
+  transform: scaleX(0); transform-origin: left;
+}
+.steps.is-playing .step.is-on::after { animation: sweep 5.5s linear forwards; }
+.steps.is-playing:hover .step.is-on::after,
+.steps.is-playing:focus-within .step.is-on::after { animation-play-state: paused; }
+@keyframes sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* the pane that arrives gets a short rise, so the change is noticed */
+.pane:not([hidden]) { animation: paneIn .34s cubic-bezier(.22,.61,.36,1) both; }
+@keyframes paneIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .step-ic { flex: none; display: flex; }
 .step-ic svg {
   width: 24px; height: 24px; fill: none; stroke: currentColor;
@@ -1240,6 +1264,9 @@ button.cite { transition: background .15s ease, border-color .15s ease, color .1
   html { scroll-behavior: auto; }
   .btn, .card, .pack, .ic, .menu-panel, .menu-trigger .chev,
   button.cite, .doc mark, .step { transition: none !important; }
+  /* the walkthrough does not play itself; the tabs still work */
+  .steps.is-playing .step.is-on::after { animation: none; }
+  .pane:not([hidden]) { animation: none; }
 }
 
 /* anchored targets clear the sticky nav */

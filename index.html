@@ -677,16 +677,44 @@
         document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
       });
     }
+    var strip = document.querySelector('.steps');
+    var at = 0, done = false;
+
+    /* Playback stops for good the moment anyone touches the tabs. */
+    function stop() { done = true; strip.classList.remove('is-playing'); }
+
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('click', function () { stop(); at = i; show(i); });
       t.addEventListener('keydown', function (e) {
         var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
         if (!d) return;
         e.preventDefault();
-        var n = (i + d + tabs.length) % tabs.length;
-        show(n); tabs[n].focus();
+        stop();
+        at = (i + d + tabs.length) % tabs.length;
+        show(at); tabs[at].focus();
       });
     });
+
+    /* The sweep is the clock: when it finishes, move on. It rests on the
+       last step rather than looping, so the section ends up still. */
+    strip.addEventListener('animationend', function (e) {
+      if (done || e.animationName !== 'sweep') return;
+      if (at >= tabs.length - 1) { stop(); return; }
+      at += 1; show(at);
+    });
+
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (calm.matches || !('IntersectionObserver' in window)) return;
+
+    /* Start only once it is actually on screen. */
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting || done) return;
+        strip.classList.add('is-playing');
+        io.unobserve(en.target);
+      });
+    }, { threshold: 0.6 });
+    io.observe(strip);
   })();
 </script>
 
