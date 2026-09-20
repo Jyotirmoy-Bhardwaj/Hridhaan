@@ -305,6 +305,28 @@
   <div class="wrap">
     <div class="eyebrow">02 — What it produces</div>
     <h2 class="sec">An agentic assessment</h2>
+
+    <div class="steps" role="tablist" aria-label="How a submission moves through review">
+      <button class="step is-on" role="tab" id="st-1" aria-controls="sp-1" aria-selected="true" type="button">
+        <span class="step-ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 14.5v3.6a1.4 1.4 0 0 0 1.4 1.4h14.2a1.4 1.4 0 0 0 1.4-1.4v-3.6"/><path d="M12 4v10"/><path d="m7.8 9.6 4.2 4.4 4.2-4.4"/></svg>
+        </span>
+        <span class="step-t"><b>01</b>Submit</span>
+      </button>
+      <button class="step" role="tab" id="st-2" aria-controls="sp-2" aria-selected="false" type="button" tabindex="-1">
+        <span class="step-ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l4.5 4.5v12.5H6z"/><path d="M14 3.5V8h4.5"/><path d="M9 12.5h6"/><path d="M9 16h4"/></svg>
+        </span>
+        <span class="step-t"><b>02</b>Findings</span>
+      </button>
+      <button class="step" role="tab" id="st-3" aria-controls="sp-3" aria-selected="false" type="button" tabindex="-1">
+        <span class="step-ic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16"/><path d="M6.8 15.4 15.9 6.3a2.1 2.1 0 0 1 3 3l-9.1 9.1-4 1z"/></svg>
+        </span>
+        <span class="step-t"><b>03</b>Sign</span>
+      </button>
+    </div>
+
     <div class="example" id="mock">
       <div class="ex-panel is-input">
         <div class="ex-h">
@@ -333,6 +355,28 @@
       </div>
 
       <div class="ex-panel is-output">
+
+        <div id="sp-1" role="tabpanel" aria-labelledby="st-1" class="pane">
+          <div class="ex-h">
+            <span class="ex-h-t">Intake — new submission</span>
+            <span class="ex-chip">queued</span>
+          </div>
+          <div class="ex-body">
+            <dl class="kv">
+              <div><dt>File</dt><dd>proposal.pdf · 34 pages</dd></div>
+              <div><dt>Rule pack</dt><dd>Biosecurity Screening</dd></div>
+              <div><dt>Version</dt><dd><span class="cite">v1.4.2</span> dated · signed · pinned</dd></div>
+              <div><dt>Runs in</dt><dd>Your tenant</dd></div>
+            </dl>
+            <div class="tenant-note">
+              <svg class="fic" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.2 4 4.4v4.3c0 3.4 2.4 6.5 6 7.4 3.6-.9 6-4 6-7.4V4.4z"/><path d="m7.4 9.9 1.9 1.9 3.5-3.8"/></svg>
+              The document never leaves your environment. The version in force is
+              recorded before anything runs.
+            </div>
+          </div>
+        </div>
+
+        <div id="sp-2" role="tabpanel" aria-labelledby="st-2" class="pane" hidden>
         <div class="ex-h">
           <span class="ex-h-t">Output — assessment record</span>
           <span class="ex-chip ver">rule pack 01</span>
@@ -381,6 +425,44 @@
           </div>
 
         </div>
+        </div>
+
+        <div id="sp-3" role="tabpanel" aria-labelledby="st-3" class="pane" hidden>
+          <div class="ex-h">
+            <span class="ex-h-t">Record — signed</span>
+            <span class="ex-chip ver">rule pack 01</span>
+          </div>
+          <div class="ex-body">
+            <div class="sig">
+              <span class="sig-ic">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.2"/><path d="m7.8 12.3 2.9 2.9 5.5-6"/></svg>
+              </span>
+              <div>
+                <div class="sig-t">Escalated to committee</div>
+                <div class="sig-s">The assessor's decision, not the system's.</div>
+              </div>
+            </div>
+
+            <dl class="kv">
+              <div><dt>Assessor</dt><dd>Biosafety officer · named</dd></div>
+              <div><dt>Signed</dt><dd>12 Mar 2026, 14:22 UTC</dd></div>
+              <div><dt>Applied</dt><dd><span class="cite">v1.4.2</span></dd></div>
+              <div><dt>Record</dt><dd><span class="cite">HR-2026-0417</span> immutable</dd></div>
+            </dl>
+
+            <ul class="flags on-paper">
+              <li class="ok">
+                <svg class="fic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.3 10.3 2.6 2.6 4.8-5.2"/></svg>
+                Findings, citations and the memo travel with the record
+              </li>
+              <li class="ok">
+                <svg class="fic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8"/><path d="m6.3 10.3 2.6 2.6 4.8-5.2"/></svg>
+                Re-runnable: the same document and version return the same result
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
     <p class="mock-note">Illustrative example using publicly described policy criteria. No customer document is reproduced.</p>
@@ -580,6 +662,33 @@
   })();
 </script>
 
+
+<script>
+  /* Submit / Findings / Sign — three states of the same interface. */
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll('.steps [role="tab"]'));
+    if (!tabs.length) return;
+    function show(i) {
+      tabs.forEach(function (t, j) {
+        var on = i === j;
+        t.classList.toggle('is-on', on);
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(i); });
+      t.addEventListener('keydown', function (e) {
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        var n = (i + d + tabs.length) % tabs.length;
+        show(n); tabs[n].focus();
+      });
+    });
+  })();
+</script>
 
 <script>
   /* Citation chips light the passage they cite, in the panel on the left. */

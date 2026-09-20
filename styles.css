@@ -494,6 +494,86 @@ footer { padding: var(--s8) 0 var(--s7); border-top: 1px solid var(--rule); back
   .wrap { padding: 0 var(--s2); }
   }
 
+/* ══ Walkthrough stepper ══════════════════════════════════════════
+   Three states of the same interface, so the document panel stays put and
+   only the right half changes. Tabs, because that is what they are. */
+
+.steps {
+  display: flex; flex-wrap: wrap; gap: var(--s1);
+  margin-top: var(--s5);
+}
+.step {
+  display: flex; align-items: center; gap: var(--s2);
+  flex: 1 1 200px; min-width: 0;
+  padding: var(--s2) var(--s3);
+  font-family: var(--sans); font-size: var(--t-base); text-align: left;
+  color: var(--ink-3);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: border-color .15s ease, background .15s ease, color .15s ease;
+}
+.step:hover { border-color: var(--rule-2); background: var(--paper-2); }
+.step.is-on {
+  background: var(--blue); border-color: var(--blue); color: #fff;
+}
+.step-ic { flex: none; display: flex; }
+.step-ic svg {
+  width: 24px; height: 24px; fill: none; stroke: currentColor;
+  stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+}
+.step-t { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.step-t b {
+  font-family: var(--mono); font-size: var(--t-xs); font-weight: 500;
+  letter-spacing: .12em; opacity: .88;
+}
+.step.is-on .step-t b { opacity: .92; }
+
+/* panes */
+.pane { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.pane[hidden] { display: none; }
+
+/* key / value list, used by the intake and the signed record */
+.kv { margin: 0; }
+.kv > div {
+  display: grid; grid-template-columns: 7.5em 1fr; gap: var(--s2);
+  padding: var(--s2) 0; border-bottom: 1px solid var(--rule);
+}
+.kv > div:last-child { border-bottom: none; }
+.kv dt { font-size: var(--t-sm); color: var(--ink-4); }
+.kv dd { margin: 0; font-size: var(--t-sm); color: var(--ink); font-weight: 500; }
+.kv dd .cite { margin-right: 6px; }
+
+.tenant-note {
+  display: flex; gap: var(--s1); align-items: flex-start;
+  margin-top: var(--s3); padding: var(--s2);
+  font-size: var(--t-sm); line-height: 1.5; color: var(--green-dk);
+  background: var(--green-lt); border-radius: var(--r-sm);
+}
+.tenant-note .fic { width: 18px; height: 18px; flex: none; margin-top: 1px; fill: none; stroke: var(--green-dk); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* the signature moment */
+.sig {
+  display: flex; gap: var(--s2); align-items: center;
+  padding: var(--s3); margin-bottom: var(--s3);
+  background: var(--blue); border-radius: var(--r-sm); color: #fff;
+}
+.sig-ic { flex: none; display: flex; }
+.sig-ic svg { width: 34px; height: 34px; fill: none; stroke: #fff; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.sig-t { font-size: var(--t-md); font-weight: 600; letter-spacing: -.02em; }
+.sig-s { font-size: var(--t-sm); color: #dbe4fe; margin-top: 2px; }
+
+/* the flag list also appears on paper, where the dark-band amber is not legible */
+.flags.on-paper { margin-top: var(--s3); }
+.flags.on-paper .ok { color: var(--green-dk); }
+.flags.on-paper .ok .fic { stroke: var(--green-dk); }
+
+@media (max-width: 640px) {
+  .step { flex: 1 1 100%; padding: var(--s2); }
+  .kv > div { grid-template-columns: 1fr; gap: 2px; }
+}
+
 /* ══ Product mock — section 02 ═══════════════════════════════════════════
    Two panels reading as a real interface: the submitted document on the
    left, the assessment record it produced on the right. Built in HTML and
@@ -1159,7 +1239,7 @@ button.cite { transition: background .15s ease, border-color .15s ease, color .1
   a.pack:hover, .card:hover { transform: none; }
   html { scroll-behavior: auto; }
   .btn, .card, .pack, .ic, .menu-panel, .menu-trigger .chev,
-  button.cite, .doc mark { transition: none !important; }
+  button.cite, .doc mark, .step { transition: none !important; }
 }
 
 /* anchored targets clear the sticky nav */
