@@ -140,6 +140,11 @@
   --green-t:    #c9ecd9;
   --green-br:   #8fdcb3;   /* on dark grounds */
 
+  /* Reserved status slot — never a fourth categorical hue, and it always
+     ships with an icon and a label. Tuned for the dark band it lives on
+     (9.1:1 there); it is not legible on paper, so it is not used there. */
+  --status-crit: #f5a524;
+
   /* the default accent, for anything not assigned a role */
   --accent:     var(--blue);
   --accent-dk:  var(--blue-dk);
@@ -328,7 +333,7 @@ section.plain { border-top: none; }
 .band-blue strong, .band-violet strong, .band-ink strong { color: #fff; }
 .band-green strong { color: var(--ink); }
 
-.band-blue .lede, .band-violet .lede { color: inherit; }
+.band-blue .lede, .band-violet .lede, .band-ink .lede { color: inherit; }
 .band-green .lede { color: #123b28; }
 
 /* links and buttons sitting on a coloured ground */
@@ -949,6 +954,74 @@ a.pack:hover .ic { stroke: #fff; }
   .has-menu.open .menu-panel { display: grid; }
   .has-menu:hover .menu-panel { display: none; }
   .has-menu.open:hover .menu-panel { display: grid; }
+}
+
+/* ══ The gap ═════════════════════════════════════════════════════════════
+   A KPI panel, not a chart: a handful of headline numbers, so each one is a
+   stat rather than a one-bar bar chart. Two comparisons share one encoding —
+   green is always the machine's row, grey is always the human's, and the bar
+   length carries the measure. Every row is direct-labelled, so identity is
+   never colour alone, and the values wear text colours rather than the
+   series colour. Blue and violet are never used to tell two things apart
+   here: they sit only ~12 ΔE apart, which is below the legibility floor
+   even for full colour vision. */
+
+.gap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s3);
+  margin-top: var(--s6);
+}
+.gap-panel {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r);
+  padding: var(--s4);
+}
+.gap-h {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #9fa3ba;
+  padding-bottom: var(--s2); margin-bottom: var(--s3);
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+
+/* headline stat */
+.stat { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s4); }
+.stat-l { font-size: var(--t-sm); color: #b9bcd0; }
+.stat-v { font-size: 34px; font-weight: 600; letter-spacing: -.03em; color: #fff; line-height: 1; }
+.stat-v .u { font-size: var(--t-sm); font-weight: 500; letter-spacing: 0; color: #b9bcd0; }
+
+/* the two comparison rows */
+.cmp { display: flex; flex-direction: column; gap: var(--s2); }
+.cmp-row { display: grid; grid-template-columns: 8.5em 1fr auto; align-items: center; gap: var(--s2); }
+.cmp-k { font-size: var(--t-sm); color: #b9bcd0; }
+.cmp-track { display: block; height: 10px; border-radius: 5px; background: rgba(255,255,255,.12); overflow: hidden; }
+.cmp-fill { display: block; height: 100%; border-radius: 5px; min-width: 6px; }
+.cmp-fill.base { background: var(--ink-5); }
+.cmp-fill.lead { background: var(--green); }
+.cmp-v { font-size: var(--t-sm); font-weight: 600; color: #fff; white-space: nowrap; }
+
+/* flagged outcomes — status, so each ships an icon and a label, never colour alone */
+.flags { list-style: none; margin: var(--s4) 0 0; padding: 0; }
+.flags li {
+  display: flex; align-items: flex-start; gap: var(--s1);
+  font-size: var(--t-sm); line-height: 1.5; margin-bottom: var(--s1);
+}
+.flags li:last-child { margin-bottom: 0; }
+.flags .fic { width: 17px; height: 17px; flex: none; margin-top: 1px; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.flags .crit { color: var(--status-crit); }
+.flags .crit .fic { stroke: var(--status-crit); }
+.flags .ok { color: var(--green); }
+.flags .ok .fic { stroke: var(--green); }
+
+.band-ink .mock-note { color: #9fa3ba; margin-top: var(--s3); }
+
+@media (max-width: 900px) {
+  .gap-grid { grid-template-columns: 1fr; }
+  .gap-panel { padding: var(--s3); }
+  .cmp-row { grid-template-columns: 1fr auto; }
+  .cmp-track { grid-column: 1 / -1; order: 3; }
+  .cmp-v { text-align: right; }
 }
 
 /* ══ Architecture diagram — section 01 ═══════════════════════════════════
