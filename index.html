@@ -98,11 +98,11 @@
     <p class="lede">Pinned and versioned, so the same document returns the same assessment years later.</p>
 
     <figure class="arch">
-      <svg viewBox="0 0 1120 400" role="img" aria-labelledby="arch-t">
+      <svg class="arch-wide" viewBox="0 36 1120 330" role="img" aria-labelledby="arch-t">
         <title id="arch-t">Documents enter the pipeline inside your tenant, are mapped to a dated rule pack, and leave as a cited evidence pack routed to a named reviewer.</title>
         <defs>
           <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-            <path d="M0 0 L10 5 L0 10 z" fill="#c9d1cf"/>
+            <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
           </marker>
         </defs>
 
@@ -168,6 +168,79 @@
           <text class="lbl" x="874" y="298">reviewer, who signs</text>
         </g>
       </svg>
+
+      <!-- Narrow viewports: the same pipeline, stacked, so nothing shrinks. -->
+      <svg class="arch-tall" viewBox="0 0 340 870" role="img" aria-labelledby="arch-t2">
+        <title id="arch-t2">Documents enter the pipeline inside your tenant, are mapped to a dated rule pack, and leave as a cited evidence pack routed to a named reviewer.</title>
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <g class="a-in">
+          <g class="doc-in">
+            <rect x="126" y="40" width="78" height="96" rx="6"/>
+            <rect x="134" y="32" width="78" height="96" rx="6"/>
+            <rect x="142" y="24" width="78" height="96" rx="6"/>
+            <line x1="156" y1="48" x2="206" y2="48"/>
+            <line x1="156" y1="64" x2="206" y2="64"/>
+            <line x1="156" y1="80" x2="188" y2="80"/>
+          </g>
+          <text class="lbl mid" x="170" y="154">Proposals, protocols,</text>
+          <text class="lbl mid" x="170" y="170">technical files</text>
+        </g>
+
+        <line class="flow" x1="170" y1="184" x2="170" y2="208" marker-end="url(#ah2)"/>
+
+        <g class="a-tenant">
+          <rect class="tenant" x="16" y="216" width="308" height="432" rx="12"/>
+          <text class="tenant-lbl sm" x="28" y="242">YOUR TENANT — DOCUMENTS NEVER LEAVE</text>
+        </g>
+
+        <g class="a-s">
+          <rect class="stepbox" x="64" y="264" width="210" height="60" rx="8"/>
+          <text class="st-n" x="80" y="288">01</text><text class="st-t" x="80" y="311">Read</text>
+        </g>
+        <line class="flow" x1="88" y1="324" x2="88" y2="344" marker-end="url(#ah2)"/>
+
+        <g class="a-s">
+          <rect class="stepbox" x="64" y="346" width="210" height="60" rx="8"/>
+          <text class="st-n" x="80" y="370">02</text><text class="st-t" x="80" y="393">Map</text>
+        </g>
+
+        <g class="a-chip">
+          <line class="dash" x1="192" y1="406" x2="192" y2="424"/>
+          <rect class="chip" x="110" y="424" width="164" height="42" rx="7"/>
+          <text class="chip-t" x="126" y="442">rule pack  v1.4.2</text>
+          <text class="chip-s sm" x="126" y="458">dated · signed · pinned</text>
+        </g>
+
+        <line class="flow" x1="88" y1="406" x2="88" y2="482" marker-end="url(#ah2)"/>
+
+        <g class="a-s">
+          <rect class="stepbox" x="64" y="484" width="210" height="60" rx="8"/>
+          <text class="st-n" x="80" y="508">03</text><text class="st-t" x="80" y="531">Cite</text>
+        </g>
+        <line class="flow" x1="88" y1="544" x2="88" y2="564" marker-end="url(#ah2)"/>
+
+        <g class="a-s">
+          <rect class="stepbox" x="64" y="566" width="210" height="60" rx="8"/>
+          <text class="st-n" x="80" y="590">04</text><text class="st-t" x="80" y="613">Record</text>
+        </g>
+
+        <line class="flow" x1="170" y1="648" x2="170" y2="674" marker-end="url(#ah2)"/>
+
+        <g class="a-out">
+          <rect class="out" x="40" y="684" width="260" height="122" rx="9"/>
+          <text class="out-h" x="60" y="712">Evidence pack</text>
+          <text class="out-l" x="60" y="738">Findings, each cited</text>
+          <text class="out-l" x="60" y="760">Framework version applied</text>
+          <text class="out-l" x="60" y="782">Full audit record</text>
+          <text class="lbl" x="40" y="834">Routed to a named</text>
+          <text class="lbl" x="40" y="850">reviewer, who signs</text>
+        </g>
+      </svg>
     </figure>
   </div>
 </section>
@@ -177,57 +250,81 @@
   <div class="wrap">
     <div class="eyebrow">02 — What it produces</div>
     <h2 class="sec">An agentic assessment</h2>
-    <div class="example">
-      <div>
-        <div class="ex-h"><span>Input — submitted proposal</span><span>34 pages</span></div>
+    <div class="example" id="mock">
+      <div class="ex-panel is-input">
+        <div class="ex-h">
+          <span class="ex-h-t">Input — submitted proposal</span>
+          <span class="ex-chip">34 pages</span>
+        </div>
         <div class="doc">
-          <span class="sec-lbl">§ 2.1 &nbsp;Proposed work</span>
-          The programme will construct <mark class="hot">chimeric viruses carrying surface glycoproteins from
-          bat-derived sarbecoviruses</mark> on a laboratory backbone, and <mark class="hot">passage the resulting
-          constructs through a humanised animal model</mark> to characterise replication kinetics.
+          <p class="doc-sec">
+            <span class="sec-lbl">§ 2.1 &nbsp;Proposed work</span>
+            The programme will construct <mark class="hot" id="p-2-1-a">chimeric viruses carrying surface glycoproteins from
+            bat-derived sarbecoviruses</mark> on a laboratory backbone, and <mark class="hot" id="p-2-1-b">passage the resulting
+            constructs through a humanised animal model</mark> to characterise replication kinetics.
+          </p>
 
-          <span class="sec-lbl">§ 2.4 &nbsp;Containment</span>
-          All work involving <mark>live virus is conducted under BSL-3 containment</mark>, with challenge
-          studies performed in the partner facility.
+          <p class="doc-sec">
+            <span class="sec-lbl">§ 2.4 &nbsp;Containment</span>
+            All work involving <mark id="p-2-4">live virus is conducted under BSL-3 containment</mark>, with challenge
+            studies performed in the partner facility.
+          </p>
 
-          <span class="sec-lbl">§ 5.2 &nbsp;Prior work <em style="color:var(--ink-4);font-weight:400;">(excluded from assessment)</em></span>
-          Previously the group completed a serological survey using archived human sera…
+          <p class="doc-sec excluded">
+            <span class="sec-lbl">§ 5.2 &nbsp;Prior work <em>(excluded from assessment)</em></span>
+            Previously the group completed a serological survey using archived human sera…
+          </p>
         </div>
       </div>
-      <div>
-        <div class="ex-h"><span>Output — assessment record</span><span>rule pack 01</span></div>
 
-        <div class="out-item hit">
-          <div class="q">Q1 · Live pathogens or virus construction</div>
-          <div class="a">Yes</div>
-          <p class="why">Construction of chimeric viruses is explicitly proposed.</p>
-          <div class="src">§ 2.1, ¶1</div>
+      <div class="ex-panel is-output">
+        <div class="ex-h">
+          <span class="ex-h-t">Output — assessment record</span>
+          <span class="ex-chip ver">rule pack 01</span>
         </div>
+        <div class="ex-body">
 
-        <div class="out-item hit">
-          <div class="q">Q2 · Controlled-list, RG3/4 or novel agent</div>
-          <div class="a">Yes</div>
-          <p class="why">Sarbecovirus-derived constructs; containment level stated by the applicant corroborates.</p>
-          <div class="src">§ 2.1, ¶1 · § 2.4, ¶1</div>
-        </div>
+          <div class="out-item">
+            <div class="q">Q1 · Live pathogens or virus construction</div>
+            <div class="a">Yes</div>
+            <p class="why">Construction of chimeric viruses is explicitly proposed.</p>
+            <div class="src">
+              <button class="cite" type="button" aria-pressed="false" data-cite="p-2-1-a">§ 2.1, ¶1</button>
+            </div>
+          </div>
 
-        <div class="out-item hot">
-          <div class="q">Q3 · Enhanced epidemic or pandemic potential</div>
-          <div class="a">Yes</div>
-          <p class="why">Chimeric construction combined with passage through a humanised host is capable of enhancing a viral characteristic.</p>
-          <div class="src">§ 2.1, ¶1</div>
-        </div>
+          <div class="out-item">
+            <div class="q">Q2 · Controlled-list, RG3/4 or novel agent</div>
+            <div class="a">Yes</div>
+            <p class="why">Sarbecovirus-derived constructs; containment level stated by the applicant corroborates.</p>
+            <div class="src">
+              <button class="cite" type="button" aria-pressed="false" data-cite="p-2-1-a">§ 2.1, ¶1</button>
+              <span class="sep" aria-hidden="true">·</span>
+              <button class="cite" type="button" aria-pressed="false" data-cite="p-2-4">§ 2.4, ¶1</button>
+            </div>
+          </div>
 
-        <div class="out-item">
-          <div class="q">Scope control</div>
-          <div class="a">Prior work excluded</div>
-          <p class="why">§ 5.2 describes completed work and is not assessed. Only proposed work drives the outcome.</p>
-        </div>
+          <div class="out-item">
+            <div class="q">Q3 · Enhanced epidemic or pandemic potential</div>
+            <div class="a">Yes</div>
+            <p class="why">Chimeric construction combined with passage through a humanised host is capable of enhancing a viral characteristic.</p>
+            <div class="src">
+              <button class="cite" type="button" aria-pressed="false" data-cite="p-2-1-a p-2-1-b">§ 2.1, ¶1</button>
+            </div>
+          </div>
 
-        <div class="verdict">
-          <div class="lbl">Outcome</div>
-          <div class="val">Highest risk grade — mandatory expert review</div>
-          <p class="note">Routed to a named assessor with findings, citations and a drafted memo. Hridhaan approves nothing.</p>
+          <div class="out-item scope">
+            <div class="q">Scope control</div>
+            <div class="a">Prior work excluded</div>
+            <p class="why">§ 5.2 describes completed work and is not assessed. Only proposed work drives the outcome.</p>
+          </div>
+
+          <div class="verdict">
+            <div class="lbl">Outcome</div>
+            <div class="val">Highest risk grade — mandatory expert review</div>
+            <p class="note">Routed to a named assessor with findings, citations and a drafted memo. Hridhaan approves nothing.</p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -246,7 +343,7 @@
         <div class="idx"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.4 3.1 8.3 7.5 9.5 4.4-1.2 7.5-5.1 7.5-9.5V6z"/><circle cx="12" cy="11.5" r="2.4"/></svg><span>01</span></div>
         <div>
           <h3>Biosecurity Screening</h3>
-          <p style="font-size:15.5px;margin:0;">Screens research proposals for biosecurity and dual-use risk, before funding is committed.</p>
+          <p class="pack-d">Screens research proposals for biosecurity and dual-use risk, before funding is committed.</p>
         </div>
       </a>
 
@@ -254,7 +351,7 @@
         <div class="idx"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5 10 5l7 3.5-7 3.5z"/><path d="M3 8.5v7L10 19l7-3.5v-7"/><path d="M10 12v7"/><path d="M20.5 3v18" stroke-dasharray="2.5 2.5"/></svg><span>02</span></div>
         <div>
           <h3>Export Control</h3>
-          <p style="font-size:15.5px;margin:0;">Screens technical content and intangible transfer against control lists.</p>
+          <p class="pack-d">Screens technical content and intangible transfer against control lists.</p>
         </div>
       </a>
 
@@ -262,7 +359,7 @@
         <div class="idx"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3.5l2-5.5 3.5 11 2.5-6.5H21"/></svg><span>03</span></div>
         <div>
           <h3>Pharmacovigilance Triage</h3>
-          <p style="font-size:15.5px;margin:0;">Triages adverse event cases and drafts the narrative, inside a validated environment.</p>
+          <p class="pack-d">Triages adverse event cases and drafts the narrative, inside a validated environment.</p>
         </div>
       </a>
 
@@ -270,7 +367,7 @@
         <div class="idx"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9z"/><path d="M15 5.5h3v15H6v-15h3"/><path d="M9 13.5l2 2 4-4"/></svg><span>04</span></div>
         <div>
           <h3>Quality Investigations</h3>
-          <p style="font-size:15.5px;margin:0;">Assembles the evidence base for a quality investigation, on top of your existing system.</p>
+          <p class="pack-d">Assembles the evidence base for a quality investigation, on top of your existing system.</p>
         </div>
       </a>
 
@@ -278,7 +375,7 @@
         <div class="idx"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3h7l4 4v10h-11z"/><path d="M13.5 3v4h4"/><path d="M3.5 7v14h11"/></svg><span>05</span></div>
         <div>
           <h3>Submission Consistency</h3>
-          <p style="font-size:15.5px;margin:0;">Checks a submission for internal contradiction before it goes to the agency.</p>
+          <p class="pack-d">Checks a submission for internal contradiction before it goes to the agency.</p>
         </div>
       </a>
     </div>
@@ -319,7 +416,7 @@
           <li>Signed offline packages where nothing outbound is permitted</li>
           <li>Works best where Azure or M365 is already in place</li>
         </ul>
-        <p style="margin-top:16px;font-size:15px;color:var(--ink-3);">
+        <p class="note-sm">
           Connector work and validation support are scoped and priced separately, agreed before work begins.
         </p>
       </div>
@@ -339,11 +436,11 @@
 <!-- ── CTA ───────────────────────────────────────────────────────────── -->
 <section class="cta">
   <div class="wrap">
-    <div class="eyebrow" style="color:#8fb4ec;">Start here</div>
+    <div class="eyebrow">Start here</div>
     <h2>Four weeks, on your own documents</h2>
     <p>Inside your environment. Measured baseline numbers, a working prototype, success criteria agreed in writing first.</p>
     <a class="btn lg" href="mailto:hello@hridhaan.ai?subject=Hridhaan%20assessment%20engagement">Book a call</a>
-    <p class="terms">Or write to <a href="mailto:hello@hridhaan.ai" style="color:#d3e0f2;text-decoration:underline;">hello@hridhaan.ai</a>.</p>
+    <p class="terms">Or write to <a href="mailto:hello@hridhaan.ai">hello@hridhaan.ai</a>.</p>
   </div>
 </section>
 
@@ -428,6 +525,36 @@
   })();
 </script>
 
+
+<script>
+  /* Citation chips light the passage they cite, in the panel on the left. */
+  (function () {
+    var mock = document.getElementById('mock');
+    if (!mock) return;
+    var chips = [].slice.call(mock.querySelectorAll('button.cite'));
+    var marks = [].slice.call(mock.querySelectorAll('.doc mark'));
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var on = chip.getAttribute('aria-pressed') !== 'true';
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', 'false'); });
+        marks.forEach(function (m) { m.classList.remove('lit'); });
+        if (!on) return;
+        chip.setAttribute('aria-pressed', 'true');
+        var ids = chip.getAttribute('data-cite').split(' ');
+        ids.forEach(function (id) {
+          var m = document.getElementById(id);
+          if (m) m.classList.add('lit');
+        });
+        /* stacked layout: bring the passage into view */
+        if (window.matchMedia('(max-width: 900px)').matches) {
+          var first = document.getElementById(ids[0]);
+          var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (first) first.scrollIntoView({ block: 'center', behavior: calm ? 'auto' : 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
 
 <script>
   (function () {
