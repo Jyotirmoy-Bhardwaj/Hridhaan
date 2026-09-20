@@ -1,2 +1,2 @@
-# Hridhaan
-Hridhaan-site
+# HridhaanAI
+HridhaanAI-site
