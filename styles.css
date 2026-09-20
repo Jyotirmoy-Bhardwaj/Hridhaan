@@ -956,56 +956,70 @@ a.pack:hover .ic { stroke: #fff; }
   .has-menu.open:hover .menu-panel { display: grid; }
 }
 
-/* ══ The gap ═════════════════════════════════════════════════════════════
-   A KPI panel, not a chart: a handful of headline numbers, so each one is a
-   stat rather than a one-bar bar chart. Two comparisons share one encoding —
-   green is always the machine's row, grey is always the human's, and the bar
-   length carries the measure. Every row is direct-labelled, so identity is
-   never colour alone, and the values wear text colours rather than the
-   series colour. Blue and violet are never used to tell two things apart
-   here: they sit only ~12 ΔE apart, which is below the legibility floor
-   even for full colour vision. */
+/* ══ The gap ══════════════════════════════════════════════════════════════════════
+   A billboard, not a dashboard: the one comparison that carries the pitch,
+   at display size, with everything else supporting it underneath.
 
-.gap-grid {
+   Headline numbers, so these are stat figures rather than a one-bar bar
+   chart. The figures wear text colours — primary for the machine's count,
+   muted for the human's — and the bar underneath carries the identity, so
+   no value is coloured by its series. The delta chip is the one exception
+   the stat contract allows: its colour states direction.
+
+   Green against grey, never blue against violet. Those two sit about
+   12 ΔE apart, under the floor where a pair stays tellable apart even with
+   full colour vision, so they are never asked to separate anything. */
+
+.gap-hero {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--s3);
-  margin-top: var(--s6);
-}
-.gap-panel {
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.16);
-  border-radius: var(--r);
-  padding: var(--s4);
-}
-.gap-h {
-  font-size: var(--t-xs); font-weight: 600; letter-spacing: .18em;
-  text-transform: uppercase; color: #9fa3ba;
-  padding-bottom: var(--s2); margin-bottom: var(--s3);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: var(--s5);
+  margin-top: var(--s7);
+  padding-bottom: var(--s7);
   border-bottom: 1px solid rgba(255,255,255,.16);
 }
+.gap-k {
+  font-size: var(--t-xs); font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #9fa3ba; margin-bottom: var(--s2);
+}
+.gap-n {
+  font-size: clamp(64px, 10vw, 128px);
+  font-weight: 600; line-height: .88; letter-spacing: -.045em;
+  color: #fff;
+}
+.gap-n.is-base { color: var(--ink-5); }
+.gap-u { font-size: var(--t-md); color: #b9bcd0; margin-top: var(--s2); }
+.gap-bar { height: 12px; border-radius: 6px; background: rgba(255,255,255,.12); overflow: hidden; margin-top: var(--s3); }
+.gap-bar i { display: block; height: 100%; border-radius: 6px; min-width: 8px; }
+.gap-bar .base { background: var(--ink-5); }
+.gap-bar .lead { background: var(--green); }
 
-/* headline stat */
-.stat { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s4); }
-.stat-l { font-size: var(--t-sm); color: #b9bcd0; }
-.stat-v { font-size: 34px; font-weight: 600; letter-spacing: -.03em; color: #fff; line-height: 1; }
-.stat-v .u { font-size: var(--t-sm); font-weight: 500; letter-spacing: 0; color: #b9bcd0; }
+/* the arrow, and the delta — the one figure whose colour states direction */
+.gap-vs { display: flex; flex-direction: column; align-items: center; gap: var(--s2); padding-bottom: var(--s6); }
+.gap-vs svg { width: 44px; height: 26px; fill: none; stroke: var(--ink-5); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.gap-delta {
+  font-size: var(--t-md); font-weight: 600; line-height: 1;
+  color: var(--ink); background: var(--green);
+  padding: 6px 12px; border-radius: 100px;
+}
 
-/* the two comparison rows */
-.cmp { display: flex; flex-direction: column; gap: var(--s2); }
-.cmp-row { display: grid; grid-template-columns: 8.5em 1fr auto; align-items: center; gap: var(--s2); }
-.cmp-k { font-size: var(--t-sm); color: #b9bcd0; }
-.cmp-track { display: block; height: 10px; border-radius: 5px; background: rgba(255,255,255,.12); overflow: hidden; }
-.cmp-fill { display: block; height: 100%; border-radius: 5px; min-width: 6px; }
-.cmp-fill.base { background: var(--ink-5); }
-.cmp-fill.lead { background: var(--green); }
-.cmp-v { font-size: var(--t-sm); font-weight: 600; color: #fff; white-space: nowrap; }
+/* supporting row */
+.gap-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s5);
+  margin-top: var(--s6);
+}
+.gap-m { font-size: 30px; font-weight: 600; letter-spacing: -.03em; color: #fff; line-height: 1.1; }
+.gap-m .u { font-size: var(--t-sm); font-weight: 500; letter-spacing: 0; color: #b9bcd0; }
+.gap-m s { color: var(--ink-5); text-decoration-thickness: 1.5px; margin-right: 6px; font-weight: 500; }
 
-/* flagged outcomes — status, so each ships an icon and a label, never colour alone */
-.flags { list-style: none; margin: var(--s4) 0 0; padding: 0; }
+/* flagged outcomes — status, so each carries an icon and a label, never colour alone */
+.flags { list-style: none; margin: 0; padding: 0; }
 .flags li {
   display: flex; align-items: flex-start; gap: var(--s1);
-  font-size: var(--t-sm); line-height: 1.5; margin-bottom: var(--s1);
+  font-size: var(--t-sm); line-height: 1.5; margin-bottom: var(--s2);
 }
 .flags li:last-child { margin-bottom: 0; }
 .flags .fic { width: 17px; height: 17px; flex: none; margin-top: 1px; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -1014,14 +1028,20 @@ a.pack:hover .ic { stroke: #fff; }
 .flags .ok { color: var(--green); }
 .flags .ok .fic { stroke: var(--green); }
 
-.band-ink .mock-note { color: #9fa3ba; margin-top: var(--s3); }
-
 @media (max-width: 900px) {
-  .gap-grid { grid-template-columns: 1fr; }
-  .gap-panel { padding: var(--s3); }
-  .cmp-row { grid-template-columns: 1fr auto; }
-  .cmp-track { grid-column: 1 / -1; order: 3; }
-  .cmp-v { text-align: right; }
+  .gap-hero { gap: var(--s3); padding-bottom: var(--s5); margin-top: var(--s5); }
+  .gap-vs { padding-bottom: var(--s5); }
+  .gap-vs svg { width: 32px; }
+  .gap-row { grid-template-columns: 1fr; gap: var(--s4); margin-top: var(--s5); }
+}
+/* Narrow: one column, so the arrow points from the human count down to the
+   machine's rather than sideways into nothing. */
+@media (max-width: 560px) {
+  .gap-hero { grid-template-columns: 1fr; gap: var(--s3); }
+  .gap-vs { flex-direction: row; justify-content: flex-start; gap: var(--s2); padding: 0; }
+  .gap-vs svg { transform: rotate(90deg); }
+  .gap-u { font-size: var(--t-sm); }
+  .gap-n { line-height: .95; }
 }
 
 /* ══ Architecture diagram — section 01 ═══════════════════════════════════
